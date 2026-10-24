@@ -37,30 +37,30 @@ public class Figura {
     }
 
     public String detectarFigura() {
-        if (numA == 0 && numB == 0 && numC == 0
-            || numA < numB && numB < numC || numA == 0) {
-            return "Los valores no indican una figura";
+        if (numA <= 0 || numB < 0 || numC < 0) {
+            return "Los valores no indican figura";
         }
-
-        if ((numA != 0 && numB == 0 && numC == 0)) {
-            return "La figura es un circulo";
+        if (numB == 0 && numC == 0) {
+            return "La figura es un círculo";
         }
-
-        if (numA != 0 && numB != 0 && numC == 0) {
+        if (numC == 0) {
             if (numA == numB) {
                 return "La figura es un cuadrado";
             }
-            return "La figura es un rectangulo";
+            return "La figura es un rectángulo";
         }
-
+        if (numB == 0) {
+            return "Los valores no indican figura";
+        }
+        if (numA + numB <= numC || numA + numC <= numB || numB + numC <= numA) {
+            return "Los valores no indican figura";
+        }
         if (numA == numB && numB == numC) {
-            return "La figura es un triangulo equilatero";
+            return "La figura es un triángulo equilátero";
         }
-
         if (numA == numB || numB == numC || numA == numC) {
-            return "La figura es un triangulo isosceles";
-        }
-
-        return "La figura es un triangulo escaleno";
-    }
+            return "La figura es un triángulo isósceles";
+        }   
+        return "La figura es un triángulo escaleno";
+    }   
 }
